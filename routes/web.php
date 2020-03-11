@@ -32,6 +32,8 @@ Route::get('/loginweb' , 'Front\homeController@login')->name('loginweb');
 
 Route::get('/registerweb' , 'Front\homeController@register')->name('registerweb');
 
+Route::get('/product' , 'Front\homeController@product')->name('productweb');
+
  Auth::routes();
 
  Route::group(['prefix' => 'panel' , 'middleware' => 'auth'], function () {

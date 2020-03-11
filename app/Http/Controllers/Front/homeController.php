@@ -65,4 +65,8 @@ class homeController extends Controller
     {
         return view('Front.Home.register');
     }
+    public function product()
+    {
+        return view('Front.Home.product');
+    }
 }
