@@ -34,16 +34,38 @@ class editnewController extends Controller
 
     public function edit_post(Request $request, $id)
     {
+
         $request->validate([
             "gender" => "required",
             "producttypeid" => "required",
-            "colorids[]" => "required|array",
+            "colorids" => "required|array",
+            "colorids.*" => "required|distinct",
             "sizeid" => "required",
             "price" => "required",
             "name" => "required",
-            "image" => "file",
+            "img_url" => "required",
             "explanation" => "required",
         ]);
+
+//        $productCategoryModel = new productCategory();
+//        $productCategoryModel->fill($request->all());
+//
+//        if($request->hasFile('image')){
+//            $file = $request->file('image');
+//            $extensions = $file->getClientOriginalExtension();
+//            $image_path="file/".uniqid().time().'.'.$extensions;
+//            Storage::disk('public')->put($image_path, file_get_contents($file->path()));
+//            $productCategoryModel->img_url=$image_path;
+//        }
+//
+//        $productCategoryModel->save();
+//
+//        foreach ($request->colorids as $key_colorid => $colorid){
+//            $productColor = new ColorProducts();
+//            $productColor->color_category_id =$colorid;
+//            $productColor->product_id =$productCategoryModel->id;
+//            $productColor->save();
+//        }
 
         $news = productCategory::find($id);
 
@@ -51,13 +73,16 @@ class editnewController extends Controller
 
             $news->fill($request->all());
 
-        }
 
-        foreach ($request->colorids as $key_colorid => $colorid){
-            $productColor = new ColorProducts();
-            $productColor->color_category_id =$colorid;
-            $productColor->product_id =$news->id;
-            $productColor->save();
+            ColorProducts::where('product_id' , $news -> id)->delete();
+            
+
+            foreach ($request->colorids as $key_colorid => $colorid){
+                $productColor = new ColorProducts();
+                $productColor->color_category_id =$colorid;
+                $productColor->product_id =$news->id;
+                $productColor->save();
+            }
         }
 
         if($request->hasFile('image')){
@@ -69,6 +94,9 @@ class editnewController extends Controller
         }
 
         $news->save();
+
+
+
 
         return redirect()->route('CMS.edit.edit');
 

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d2c948ee-e1b7-4244-94eb-0aba26042adf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Cms/editnewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Cms/editnewController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/CMS/edit/edit_new.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/CMS/edit/edit_new.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,6 +192,7 @@
       <workItem from="1583322262285" duration="8250000" />
       <workItem from="1583391853359" duration="8044000" />
       <workItem from="1583908806977" duration="1607000" />
+      <workItem from="1583914910523" duration="6007000" />
     </task>
     <servers />
   </component>
@@ -229,11 +232,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="463" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581689200005" />
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1583908808492">
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1583914912710">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581577074242" />
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583908808492" />
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583914912710" />
     <state x="526" y="161" width="607" height="789" key="find.popup" timestamp="1581945495231">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -242,9 +245,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="816" y="430" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582887407790" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1582118338506">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583915432996">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582118338506" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583915432996" />
   </component>
 </project>

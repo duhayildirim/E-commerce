@@ -1,5 +1,6 @@
 @extends('CMS.main')
 @section('content')
+
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <div class="">
@@ -108,6 +109,7 @@
                                 </textarea>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-success">KAYDET</button>
