@@ -75,7 +75,7 @@ class editnewController extends Controller
 
 
             ColorProducts::where('product_id' , $news -> id)->delete();
-            
+
 
             foreach ($request->colorids as $key_colorid => $colorid){
                 $productColor = new ColorProducts();
