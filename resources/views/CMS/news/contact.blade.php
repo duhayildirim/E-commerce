@@ -35,19 +35,20 @@
                                 </td>
                             </tr>
 
+                            @foreach($contact as $new)
                             <tr>
                                 <td style="width: 5%"></td>
                                 <td style="width: 5%">
-                                    <a></a>
+                                    <a>{{$new -> name}}</a>
                                 </td>
                                 <td style="width: 5%">
-                                    <a></a>
+                                    <a>{{$new -> email}}</a>
                                 </td>
                                 <td style="width: 5%">
-                                    <a></a>
+                                    <a>{{$new -> subject}}</a>
                                 </td>
                                 <td style="width: 20%">
-                                    <a></a>
+                                    <a>{{$new -> message}}</a>
                                 </td>
                                 </td>
                                 <td style="width: 5%">
@@ -55,6 +56,7 @@
                                     <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Cevapla </a>
                                 </td>
                             </tr>
+                            @endforeach
 
                             </tbody>
                         </table>

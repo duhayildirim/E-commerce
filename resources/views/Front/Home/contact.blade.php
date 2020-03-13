@@ -28,12 +28,13 @@
                         <a href="#"><i class="fa fa-dribbble"></i></a>
                         <a href="#"><i class="fa fa-behance"></i></a>
                     </div>
-                    <form class="contact-form">
-                        <input type="text" placeholder="Your name">
-                        <input type="text" placeholder="Your e-mail">
-                        <input type="text" placeholder="Subject">
-                        <textarea placeholder="Message"></textarea>
-                        <button class="site-btn">SEND NOW</button>
+                    <form class="contact-form" action="{{route("contact_store")}}" method="post">
+                        {{csrf_field()}}
+                        <input type="text" name="name" placeholder="Your name">
+                        <input type="text" name="email" placeholder="Your e-mail">
+                        <input type="text" name="subject" placeholder="Subject">
+                        <textarea name="message" placeholder="Message"></textarea>
+                        <button class="site-btn" >SEND NOW</button>
                     </form>
                 </div>
             </div>

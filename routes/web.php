@@ -27,6 +27,7 @@ Route::get('/basket' , 'Front\homeController@basket')->name('basket');
 Route::get('/pay' , 'Front\homeController@pay')->name('pay');
 
 Route::get('/contact' , 'Front\homeController@contact')->name('contact');
+    Route::post('/contact_store' , 'Front\contact@store')->name('contact_store');
 
 Route::get('/loginweb' , 'Front\homeController@login')->name('loginweb');
 
