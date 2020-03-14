@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="tr">
 <head>
     <title>Duhaninmelekleri.com</title>
     <meta charset="UTF-8">

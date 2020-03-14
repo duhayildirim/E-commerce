@@ -12,12 +12,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="x_panel">
+
                     <div class="x_content">
                         <!-- start project list -->
                         <table class="table table-striped projects">
                             <tbody>
                             <tr>
-                                <td style="width: 5%">ID</td>
                                 <td style="width: 5%">
                                     <a>AD</a>
                                 </td>
@@ -35,24 +35,23 @@
                                 </td>
                             </tr>
 
-                            @foreach($contact as $new)
+                            @foreach($contact as $newcontact)
                             <tr>
-                                <td style="width: 5%"></td>
                                 <td style="width: 5%">
-                                    <a>{{$new -> name}}</a>
+                                    <a>{{$newcontact -> name}}</a>
                                 </td>
                                 <td style="width: 5%">
-                                    <a>{{$new -> email}}</a>
+                                    <a>{{$newcontact -> email}}</a>
                                 </td>
                                 <td style="width: 5%">
-                                    <a>{{$new -> subject}}</a>
+                                    <a>{{$newcontact -> subject}}</a>
                                 </td>
                                 <td style="width: 20%">
-                                    <a>{{$new -> message}}</a>
+                                    <a>{{$newcontact -> message}}</a>
                                 </td>
                                 </td>
                                 <td style="width: 5%">
-                                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Mesajı Sil </a>
+                                    <a href="{{route("contact_delete" , $newcontact -> id)}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Mesajı Sil </a>
                                     <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Cevapla </a>
                                 </td>
                             </tr>

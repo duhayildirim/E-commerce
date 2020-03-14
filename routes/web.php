@@ -29,6 +29,7 @@ Route::get('/pay' , 'Front\homeController@pay')->name('pay');
 Route::get('/contact' , 'Front\homeController@contact')->name('contact');
     Route::post('/contact_store' , 'Front\contact@store')->name('contact_store');
 
+
 Route::get('/loginweb' , 'Front\homeController@login')->name('loginweb');
 
 Route::get('/registerweb' , 'Front\homeController@register')->name('registerweb');
@@ -84,6 +85,9 @@ Route::get('/product' , 'Front\homeController@product')->name('productweb');
     });
 
     Route::get('/create' , 'Cms\contactController@create')->name('CMS.create_contact');
-    Route::get('/create_order' , 'Cms\orderController@create')->name('CMS.create_order');
+        Route::get('/delete_store/{id}' , 'Cms\contactController@delete')->name('contact_delete');
+
+
+        Route::get('/create_order' , 'Cms\orderController@create')->name('CMS.create_order');
     Route::get('/create_membership' , 'Cms\membershipController@create')->name('CMS.create_membership');
 });

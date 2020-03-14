@@ -11,7 +11,7 @@ class colorCategory extends Model
     public $timestamps='true';
 
     protected $fillable=[
-        'title'
+        'title',
     ];
 
     public function products()

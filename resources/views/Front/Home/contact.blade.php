@@ -28,6 +28,15 @@
                         <a href="#"><i class="fa fa-dribbble"></i></a>
                         <a href="#"><i class="fa fa-behance"></i></a>
                     </div>
+                    @if($errors->any())
+                        <div class="alert alert-error">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form class="contact-form" action="{{route("contact_store")}}" method="post">
                         {{csrf_field()}}
                         <input type="text" name="name" placeholder="Your name">
