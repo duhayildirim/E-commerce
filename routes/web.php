@@ -45,7 +45,7 @@ Route::get('/productweb/{id}' , 'Front\homeController@product')->name('productwe
         return view('CMS.home');})->name('CMS.home');
 
     Route::group(['prefix' => 'news', 'namespace' => 'CMS'], function () {
-        Route::get('/create' , 'CMS\newsController@create')->name('CMS.news.create');
+        Route::get('/create' , 'newsController@create')->name('CMS.news.create');
         /*Route::post('/store' , function (\Illuminate\Http\Request $request){
             dd($request->all());
         })->name('CMS.news.store');*/
@@ -72,23 +72,23 @@ Route::get('/productweb/{id}' , 'Front\homeController@product')->name('productwe
     });
 
     Route::group(['prefix' => 'producttype'], function (){
-        Route::get('/create' , 'CMS\producttypeController@create')->name('CMS.producttype.create');
-        Route::post('/create_producttype', 'CMS\producttypeController@create_producttype')-> name('CMS.producttype.create_post');
-        Route::get('/edit_producttype' , 'CMS\producttypeController@edit')->name('CMS.edit.edit_producttype');
-        Route::get('/delete_producttype/{id}' , 'CMS\producttypeController@delete')->name('CMS.edit.delete_producttype');
+        Route::get('/create' , 'producttypeController@create')->name('CMS.producttype.create');
+        Route::post('/create_producttype', 'producttypeController@create_producttype')-> name('CMS.producttype.create_post');
+        Route::get('/edit_producttype' , 'producttypeController@edit')->name('CMS.edit.edit_producttype');
+        Route::get('/delete_producttype/{id}' , 'producttypeController@delete')->name('CMS.edit.delete_producttype');
     });
 
     Route::group(['prefix' => 'coupon'], function (){
-        Route::get('/create' , 'Cms\couponController@create')->name('CMS.coupon.create');
-        Route::post('/create_coupon' , 'Cms\couponController@create_coupon')->name('CMS.coupon.create_post');
-        Route::get('/edit_coupon' , 'Cms\couponController@edit')->name('CMS.edit.edit_coupon');
-        Route::get('/delete_coupon/{id}' , 'Cms\couponController@delete')->name('CMS.edit.delete_coupon');
+        Route::get('/create' , 'couponController@create')->name('CMS.coupon.create');
+        Route::post('/create_coupon' , 'couponController@create_coupon')->name('CMS.coupon.create_post');
+        Route::get('/edit_coupon' , 'couponController@edit')->name('CMS.edit.edit_coupon');
+        Route::get('/delete_coupon/{id}' , 'couponController@delete')->name('CMS.edit.delete_coupon');
     });
 
     Route::get('/create' , 'Cms\contactController@create')->name('CMS.create_contact');
-        Route::get('/delete_store/{id}' , 'Cms\contactController@delete')->name('contact_delete');
+        Route::get('/delete_store/{id}' , 'contactController@delete')->name('contact_delete');
 
 
-        Route::get('/create_order' , 'Cms\orderController@create')->name('CMS.create_order');
-    Route::get('/create_membership' , 'Cms\membershipController@create')->name('CMS.create_membership');
+        Route::get('/create_order' , 'orderController@create')->name('CMS.create_order');
+    Route::get('/create_membership' , 'membershipController@create')->name('CMS.create_membership');
 });
