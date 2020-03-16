@@ -47,35 +47,13 @@ class editnewController extends Controller
             "explanation" => "required",
         ]);
 
-//        $productCategoryModel = new productCategory();
-//        $productCategoryModel->fill($request->all());
-//
-//        if($request->hasFile('image')){
-//            $file = $request->file('image');
-//            $extensions = $file->getClientOriginalExtension();
-//            $image_path="file/".uniqid().time().'.'.$extensions;
-//            Storage::disk('public')->put($image_path, file_get_contents($file->path()));
-//            $productCategoryModel->img_url=$image_path;
-//        }
-//
-//        $productCategoryModel->save();
-//
-//        foreach ($request->colorids as $key_colorid => $colorid){
-//            $productColor = new ColorProducts();
-//            $productColor->color_category_id =$colorid;
-//            $productColor->product_id =$productCategoryModel->id;
-//            $productColor->save();
-//        }
-
         $news = productCategory::find($id);
 
         if (isset($news)) {
 
             $news->fill($request->all());
 
-
             ColorProducts::where('product_id' , $news -> id)->delete();
-
 
             foreach ($request->colorids as $key_colorid => $colorid){
                 $productColor = new ColorProducts();
@@ -94,9 +72,6 @@ class editnewController extends Controller
         }
 
         $news->save();
-
-
-
 
         return redirect()->route('CMS.edit.edit');
 

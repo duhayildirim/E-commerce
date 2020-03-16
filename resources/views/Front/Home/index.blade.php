@@ -1,6 +1,7 @@
 @extends('Front.main')
 @section('content')
-    <section class="hero-section">
+    <section class="hero-section" xmlns:object-fit="http://www.w3.org/1999/xhtml"
+             xmlns:object-fit="http://www.w3.org/1999/xhtml" xmlns:object-fit="http://www.w3.org/1999/xhtml">
         <div class="hero-slider owl-carousel">
             <div class="hs-item set-bg" data-setbg="img/bg.jpg">
                 <div class="container">
@@ -83,70 +84,24 @@
     <section class="top-letest-product-section">
         <div class="container">
             <div class="section-title">
-                <h2>İndirimdekiler</h2>
+                <h2>En Yeniler</h2>
             </div>
-            <div class="product-slider owl-carousel">
+            <div class="product-slider owl-carousel" >
+                @foreach($new as $n)
                 <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="./img/product/1.jpg" alt="">
+                    <div class="pi-pic" " >
+                        <img src="{{ \Illuminate\Support\Facades\Storage::url($n -> img_url) }}" style="width: 100%; height: 400px" alt="">
                         <div class="pi-links">
                             <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
+                            <a href="{{route('productweb' , $n -> id)}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">İncele</a>
                         </div>
                     </div>
                     <div class="pi-text">
-                        <h6>$35,00</h6>
-                        <p>Flamboyant Pink Top </p>
+                        <h6>{{$n -> name}}</h6>
+                        <p>{{$n -> price}}</p>
                     </div>
                 </div>
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <div class="tag-new">New</div>
-                        <img src="./img/product/2.jpg" alt="">
-                        <div class="pi-links">
-                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
-                        </div>
-                    </div>
-                    <div class="pi-text">
-                        <h6>$35,00</h6>
-                        <p>Black and White Stripes Dress</p>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="./img/product/3.jpg" alt="">
-                        <div class="pi-links">
-                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
-                        </div>
-                    </div>
-                    <div class="pi-text">
-                        <h6>$35,00</h6>
-                        <p>Flamboyant Pink Top </p>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="./img/product/4.jpg" alt="">
-                        <div class="pi-links">
-                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
-                        </div>
-                    </div>
-                    <div class="pi-text">
-                        <h6>$35,00</h6>
-                        <p>Flamboyant Pink Top </p>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="./img/product/6.jpg" alt="">
-                        <div class="pi-links">
-                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
-                        </div>
-                    </div>
-                    <div class="pi-text">
-                        <h6>$35,00</h6>
-                        <p>Flamboyant Pink Top </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -158,7 +113,7 @@
     <section class="product-filter-section">
         <div class="container">
             <div class="section-title">
-                <h2>Çok Satanlar</h2>
+                <h2>İndirimdekiler</h2>
             </div>
             <ul class="product-filter-menu" align="center">
                 <li><a>Pantolon</a></li>
@@ -171,119 +126,23 @@
                 <li><a>Etek</a></li>
             </ul>
             <div class="row">
+                @foreach($show as $s)
                 <div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="./img/product/5.jpg" alt="">
+                            <img  src="{{\Illuminate\Support\Facades\Storage::url($s -> img_url)}}" style="width: 100%; height: 400px" alt="">
                             <div class="pi-links">
                                 <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
+                                <a href="{{route('productweb' , $s -> id)}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">İncele</a>
                             </div>
                         </div>
                         <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Flamboyant Pink Top </p>
+                            <h6>{{$s -> price}}</h6>
+                            <p>{{$s -> name }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <div class="tag-sale">ON SALE</div>
-                            <img src="./img/product/6.jpg" alt="">
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
-                            </div>
-                        </div>
-                        <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Black and White Stripes Dress</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="./img/product/7.jpg" alt="">
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
-                            </div>
-                        </div>
-                        <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Flamboyant Pink Top </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="./img/product/8.jpg" alt="">
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
-                            </div>
-                        </div>
-                        <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Flamboyant Pink Top </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="./img/product/9.jpg" alt="">
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
-                            </div>
-                        </div>
-                        <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Flamboyant Pink Top </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="./img/product/10.jpg" alt="">
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
-                            </div>
-                        </div>
-                        <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Black and White Stripes Dress</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="./img/product/11.jpg" alt="">
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
-                            </div>
-                        </div>
-                        <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Flamboyant Pink Top </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="./img/product/12.jpg" alt="">
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
-                            </div>
-                        </div>
-                        <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Flamboyant Pink Top </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

@@ -29,7 +29,7 @@
                         <h2>Cinsiyet</h2>
                         <div class="col-sm-12">
                             <select name="gender" class="form-control form-control-lg">
-                                <option value="">Seçim Yapınız</option>
+                                <option value="" disabled selected hidden>Seçim Yapınız</option>
                                 <option value="Kadin">Kadın</option>
                                 <option value="Erkek">Erkek</option>
                             </select>
@@ -39,7 +39,7 @@
                             <h2>Tür</h2>
                             <div class="col-sm-12">
                                 <select name="producttypeid" class="form-control form-control-lg">
-                                    <option>Seçim Yapınız</option>
+                                    <option disabled selected hidden>Seçim Yapınız</option>
                                     @foreach($element as $e)
                                         <option value="{{$e->id}}">{{$e->title}}</option>
                                     @endforeach
@@ -50,7 +50,7 @@
                             <h2>Beden</h2>
                             <div class="col-sm-12">
                                 <select name="sizeid" class="form-control form-control-lg">
-                                    <option>Seçim Yapınız</option>
+                                    <option disabled selected hidden>Seçim Yapınız</option>
                                     @foreach($element2 as $e2)
                                         <option value="{{$e2->id}}">{{$e2->title}}</option>
                                     @endforeach
@@ -60,8 +60,7 @@
                         <div class="form-group">
                             <h2>Renk</h2>
                             <div class="col-sm-12">
-                                <select name="colorids[]" id="color" class="form-control form-control-lg" multiple="multiple">
-                                    <option>Seçim Yapınız</option>
+                                <select name="colorids[]" id="color" class="form-control form-control-lg" multiple="multiple" >
                                     @foreach($element3 as $e3)
                                         <option value="{{$e3->id}}">{{$e3->title}}</option>
                                     @endforeach

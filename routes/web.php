@@ -34,7 +34,8 @@ Route::get('/loginweb' , 'Front\homeController@login')->name('loginweb');
 
 Route::get('/registerweb' , 'Front\homeController@register')->name('registerweb');
 
-Route::get('/product' , 'Front\homeController@product')->name('productweb');
+Route::get('/productweb/{id}' , 'Front\homeController@product')->name('productweb');
+
 
  Auth::routes();
 
@@ -43,31 +44,31 @@ Route::get('/product' , 'Front\homeController@product')->name('productweb');
     Route::get('/' , function (){
         return view('CMS.home');})->name('CMS.home');
 
-    Route::group(['prefix' => 'news'], function () {
+    Route::group(['prefix' => 'news', 'namespace' => 'CMS'], function () {
         Route::get('/create' , 'CMS\newsController@create')->name('CMS.news.create');
         /*Route::post('/store' , function (\Illuminate\Http\Request $request){
             dd($request->all());
         })->name('CMS.news.store');*/
-        Route::post('/store' , 'CMS\newsController@store')->name('CMS.news.store');
-        Route::get('/edit' , 'CMS\newsController@edit')->name('CMS.edit.edit');
-        Route::get('/delete/{id}' , 'CMS\newsController@delete')->name('CMS.edit.delete');
-        Route::post('/delete_product' , 'CMS\newsController@edit_product')->name('CMS.edit.delete_product');
-        Route::get('/edit_new/{id}' , 'CMS\editnewController@create')->name('CMS.edit.edit_new');
-        Route::post('/edit_post/{id}' , 'CMS\editnewController@edit_post')->name('CMS.edit.edit_post');
+        Route::post('/store' , 'newsController@store')->name('CMS.news.store');
+        Route::get('/edit' , 'newsController@edit')->name('CMS.edit.edit');
+        Route::get('/delete/{id}' , 'newsController@delete')->name('CMS.edit.delete');
+        Route::post('/delete_product' , 'newsController@edit_product')->name('CMS.edit.delete_product');
+        Route::get('/edit_new/{id}' , 'editnewController@create')->name('CMS.edit.edit_new');
+        Route::post('/edit_post/{id}' , 'editnewController@edit_post')->name('CMS.edit.edit_post');
     });
 
     Route::group(['prefix' => 'color'], function (){
-        Route::get('/create' , 'CMS\colorController@create')->name('CMS.color.create');
-        Route::post('/create_color', 'CMS\colorController@create_color')-> name('CMS.color.create_post');
-        Route::get('/edit_color' , 'CMS\colorController@edit')->name('CMS.edit.edit_color');
-        Route::get('/delete_color/{id}' , 'CMS\colorController@delete')->name('CMS.edit.delete_color');
+        Route::get('/create' , 'colorController@create')->name('CMS.color.create');
+        Route::post('/create_color', 'colorController@create_color')-> name('CMS.color.create_post');
+        Route::get('/edit_color' , 'colorController@edit')->name('CMS.edit.edit_color');
+        Route::get('/delete_color/{id}' , 'colorController@delete')->name('CMS.edit.delete_color');
     });
 
     Route::group(['prefix' => 'size'], function (){
-        Route::get('/create' , 'CMS\sizeController@create')->name('CMS.size.create');
-        Route::post('/create_size', 'CMS\sizeController@create_size')-> name('CMS.size.create_post');
-        Route::get('/edit_size' , 'CMS\sizeController@edit')->name('CMS.edit.edit_size');
-        Route::get('/delete_size/{id}' , 'CMS\sizeController@delete')->name('CMS.edit.delete_size');
+        Route::get('/create' , 'sizeController@create')->name('CMS.size.create');
+        Route::post('/create_size', 'sizeController@create_size')-> name('CMS.size.create_post');
+        Route::get('/edit_size' , 'sizeController@edit')->name('CMS.edit.edit_size');
+        Route::get('/delete_size/{id}' , 'sizeController@delete')->name('CMS.edit.delete_size');
     });
 
     Route::group(['prefix' => 'producttype'], function (){

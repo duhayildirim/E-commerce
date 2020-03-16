@@ -50,14 +50,15 @@ class newsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "gender"=>"required",
-            "producttypeid"=>"required",
-            "sizeid"=>"required",
-            "colorids"=>"required|array",
-            "price"=>"required",
-            "name"=>"required",
-            "img_url"=>"required",
-            "explanation"=>"required",
+            "gender" => "required",
+            "producttypeid" => "required",
+            "colorids" => "required|array",
+            "colorids.*" => "required|distinct",
+            "sizeid" => "required",
+            "price" => "required",
+            "name" => "required",
+            "img_url" => "required",
+            "explanation" => "required",
         ]);
 
         $productCategoryModel = new productCategory();

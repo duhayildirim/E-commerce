@@ -9,6 +9,7 @@ use App\Models\productCategory;
 use App\Models\producttypeCategory;
 use App\Models\sizeCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 
 class homeController extends Controller
@@ -19,10 +20,21 @@ class homeController extends Controller
 
         $sizecategory = sizeCategory::all();
         View::share('sizecategory' , $sizecategory);
+
+        $show = productCategory::all();
+        View::share('show' , $show);
+
+        $new = productCategory::whereBetween('price' , [100, 1000]) -> get();
+        View::share('new' , $new);
+
+//        $new = DB::table('product')->whereBetween('price', [95, 1000])->get();
+////        View::share('new' , $new);
+
     }
 
     public function index()
     {
+
         return view('Front.Home.index');
     }
 
@@ -65,8 +77,11 @@ class homeController extends Controller
     {
         return view('Front.Home.register');
     }
-    public function product()
+    public function product($id)
     {
+        $product = productCategory::findOrFail($id);
+        View::share('product', $product);
+
         return view('Front.Home.product');
     }
 }
