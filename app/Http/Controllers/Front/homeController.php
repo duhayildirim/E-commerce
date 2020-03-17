@@ -52,6 +52,13 @@ class homeController extends Controller
     }
     public function basket()
     {
+        $basket = basketCategory::all();
+        View::share('basket' , $basket);
+        //sorgu yazdırman grek ilişkiden fiyata gidip TL kısmından öneki yeri alman gerek.
+        //tl kısmını integer ile değiş tl yi viewa sabitle gerekli validationları yaz. migrate et cmsden her yerden değiş
+        //total kısmını yaz döngünün içini kullan
+        // ajax ile güncelleme yap veri silme
+        // küyeler için veri tabanı oluştur ve view oluştur
         return view('Front.Home.basket');
     }
     public function pay()
@@ -79,18 +86,14 @@ class homeController extends Controller
     }
     public function add_basket(Request $request)
     {
-//        return $request;
-//        $product_id = $request->product_id;
-
         $basket = new basketCategory();
         $basket -> fill($request -> all());
 
         $basket -> save();
 
-        //buraya veri tabanına kayıt eden fonksiyonu yaz
-
         return Response::json([
             'message' => 'ok'
         ]);
     }
+
 }

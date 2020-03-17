@@ -24,7 +24,6 @@
                                 <thead>
                                 <tr>
                                     <th class="product-th">Ürün</th>
-                                    <th class="quy-th">Adeti</th>
                                     <th class="size-th">Bedeni</th>
                                     <th class="total-th">Fiyatı</th>
                                 </tr>
@@ -43,13 +42,6 @@
                                             </p>
                                         </div>
                                     </td>
-                                    <td class="quy-col">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
                                     <td class="size-col"><h4>{{$b -> productrelation -> sizeidrelation -> title}}</h4></td>
                                     <td class="total-col"><h4>{{$b -> productrelation -> price}}</h4></td>
                                 </tr>
@@ -58,7 +50,7 @@
                             </table>
                         </div>
                         <div class="total-cost">
-                            <h6>Total <span>$99.90</span></h6>
+                            <h6>Toplam <span> {{ $total }} </span></h6>
                         </div>
                     </div>
                 </div>

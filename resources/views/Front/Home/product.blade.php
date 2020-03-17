@@ -77,7 +77,6 @@
                                 unit: unit
                             },
                             success:function (result) {
-                                console.log(result);
                                 if (result['message'] === "ok") {
                                     alert("Ürün Sepete Eklendi");
                                 }
