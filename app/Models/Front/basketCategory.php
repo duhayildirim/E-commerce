@@ -12,8 +12,7 @@ class basketCategory extends Model
     public $timestamps = 'true';
 
     protected $fillable =[
-        'productid',
-        'amount',
+        'productid','unit'
     ];
 
     public function productrelation()

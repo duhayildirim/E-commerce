@@ -20,16 +20,11 @@
                     <div class="product-pic-zoom">
                         <img class="product-big-img" src="{{\Illuminate\Support\Facades\Storage::url($product -> img_url)}}" alt="">
                     </div>
-{{--                    <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">--}}
-{{--                        <div class="product-thumbs-track">--}}
-{{--                            <div class="pt active" data-imgbigurl="{{\Illuminate\Support\Facades\Storage::url($product -> img_url)}}"><img src="{{\Illuminate\Support\Facades\Storage::url($product -> img_url)}}" alt=""></div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
                 </div>
                 <div class="col-lg-6 product-details">
                     <h2 class="p-title">{{$product -> name}}</h2>
                     <h3 class="p-price">{{$product -> price}}</h3>
-                    <h4 class="p-stock"> <span>Stokta Var</span></h4>
+                    <h4 class="p-stock"> <span>Stokta Var</span> </h4>
                     <div class="fw-size-choose">
                         <p>Beden</p>
                         <div class="sc-item">
@@ -39,9 +34,11 @@
                     </div>
                     <div class="quantity">
                         <p>Adet</p>
-                        <div class="pro-qty"><input type="text" value="1"></div>
+                        <div class="pro-qty">
+                            <input id="unit" type="text" value="1">
+                        </div>
                     </div>
-                    <a href="{{route('basket')}}" class="site-btn">Sepete ekle</a>
+                    <a onclick="basket({{$product -> id}})" id="buton" class="site-btn">Sepete ekle</a>
                     <div id="accordion" class="accordion-area">
                         <div class="panel">
                             <div class="panel-header" id="headingOne">
@@ -67,11 +64,33 @@
                         </div>
                     </div>
                 </div>
+                <script>
+                    function basket(id)
+                    {
+                        var unit = $('#unit').val();
+                        $.ajax({
+                            type:"get",
+                            url:"{{route('add_basket')}}",
+                            data: {
+                                _token: '{{ csrf_token() }}' ,
+                                productid: id,
+                                unit: unit
+                            },
+                            success:function (result) {
+                                console.log(result);
+                                if (result['message'] === "ok") {
+                                    alert("Ürün Sepete Eklendi");
+                                }
+                            }
+                        })
+                    }
+                </script>
             </div>
+
         </div>
     </section>
-    <!-- product section end -->
 
+    <!-- product section end -->
 
     <!-- RELATED PRODUCTS section -->
     <section class="top-letest-product-section">

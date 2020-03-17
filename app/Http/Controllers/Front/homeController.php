@@ -10,11 +10,13 @@ use App\Models\producttypeCategory;
 use App\Models\sizeCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
 
 class homeController extends Controller
 {
-    public function __construct() { // hepsinden önce çalışır bir daha ayrı ayrı fonksiyonlar yazmana gerek yok
+    public function __construct() {
+
         $typecategory = producttypeCategory::all();
         View::share('typecategory' , $typecategory);
 
@@ -27,24 +29,15 @@ class homeController extends Controller
         $new = productCategory::whereBetween('price' , [100, 1000]) -> get();
         View::share('new' , $new);
 
-//        $new = DB::table('product')->whereBetween('price', [95, 1000])->get();
-////        View::share('new' , $new);
-
     }
 
     public function index()
     {
-
         return view('Front.Home.index');
     }
 
     public function woman()
     {
-//        $colorproducts = colorProducts::where('product_id',49)->get();
-//        foreach ($colorproducts as $colorproduct){
-//            dd($colorproduct->Color->title,$colorproduct->Product->name);
-//        }
-
         $products = productCategory::where('gender','Kadin')->get();
         View::share('products' , $products);
 
@@ -83,5 +76,21 @@ class homeController extends Controller
         View::share('product', $product);
 
         return view('Front.Home.product');
+    }
+    public function add_basket(Request $request)
+    {
+//        return $request;
+//        $product_id = $request->product_id;
+
+        $basket = new basketCategory();
+        $basket -> fill($request -> all());
+
+        $basket -> save();
+
+        //buraya veri tabanına kayıt eden fonksiyonu yaz
+
+        return Response::json([
+            'message' => 'ok'
+        ]);
     }
 }

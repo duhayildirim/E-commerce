@@ -30,12 +30,17 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($basket as $b )
                                 <tr>
                                     <td class="product-col">
-                                        <img src="img/cart/1.jpg" alt="">
+                                        <img src="{{\Illuminate\Support\Facades\Storage::url($b -> productrelation -> img_url)}}" alt="">
                                         <div class="pc-title">
-                                            <h4>Animal Print Dress</h4>
-                                            <p>$45.90</p>
+                                            <h4>{{$b -> productrelation -> name}}</h4>
+                                            <p>
+                                                @foreach($b-> productrelation -> colors as $key =>$colorProduct)
+                                                    <a>{{isset($colorProduct->color)?$colorProduct->color->title:""}}</a><br>
+                                                @endforeach
+                                            </p>
                                         </div>
                                     </td>
                                     <td class="quy-col">
@@ -45,45 +50,10 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="size-col"><h4>Size M</h4></td>
-                                    <td class="total-col"><h4>$45.90</h4></td>
+                                    <td class="size-col"><h4>{{$b -> productrelation -> sizeidrelation -> title}}</h4></td>
+                                    <td class="total-col"><h4>{{$b -> productrelation -> price}}</h4></td>
                                 </tr>
-                                <tr>
-                                    <td class="product-col">
-                                        <img src="img/cart/2.jpg" alt="">
-                                        <div class="pc-title">
-                                            <h4>Ruffle Pink Top</h4>
-                                            <p>$45.90</p>
-                                        </div>
-                                    </td>
-                                    <td class="quy-col">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="size-col"><h4>Size M</h4></td>
-                                    <td class="total-col"><h4>$45.90</h4></td>
-                                </tr>
-                                <tr>
-                                    <td class="product-col">
-                                        <img src="img/cart/3.jpg" alt="">
-                                        <div class="pc-title">
-                                            <h4>Skinny Jeans</h4>
-                                            <p>$45.90</p>
-                                        </div>
-                                    </td>
-                                    <td class="quy-col">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="size-col"><h4>Size M</h4></td>
-                                    <td class="total-col"><h4>$45.90</h4></td>
-                                </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -118,7 +88,7 @@
                         <div class="pi-pic"  >
                             <img src="{{ \Illuminate\Support\Facades\Storage::url($n -> img_url) }}" style="width: 100%; height: 400px" alt="">
                             <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
+                                <a href="{{'basket' , $n -> id}}" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
                             </div>
                         </div>
                         <div class="pi-text">

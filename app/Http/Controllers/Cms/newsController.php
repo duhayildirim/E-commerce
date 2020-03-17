@@ -32,13 +32,6 @@ class newsController extends Controller
 
     public function edit()
     {
-//        $a = productCategory::orderBy('id','desc')->with(['colors.color','sizeidrelation','producttypeidrelation'])->get()->toarray();
-                                                                                                            //ya da   first()
-
-        //ya da
-
-//        $b = productCategory::orderBy('id','desc')->first();
-//        dd($b);
 
         $element7 = productCategory::all();
         View::share('element7', $element7);
