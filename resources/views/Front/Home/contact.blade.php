@@ -39,11 +39,11 @@
                     @endif
                     <form class="contact-form" action="{{route("contact_store")}}" method="post">
                         {{csrf_field()}}
-                        <input type="text" name="name" placeholder="Your name">
-                        <input type="text" name="email" placeholder="Your e-mail">
-                        <input type="text" name="subject" placeholder="Subject">
-                        <textarea name="message" placeholder="Message"></textarea>
-                        <button class="site-btn" >SEND NOW</button>
+                        <input type="text" name="name" placeholder="isim">
+                        <input type="text" name="email" placeholder="e-mail">
+                        <input type="text" name="subject" placeholder="konu">
+                        <textarea name="message" placeholder="mesajınız"></textarea>
+                        <button class="site-btn" >GÖNDER</button>
                     </form>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                         <div class="pi-pic"  >
                             <img src="{{ \Illuminate\Support\Facades\Storage::url($n -> img_url) }}" style="width: 100%; height: 400px" alt="">
                             <div class="pi-links">
-                                <a href="{{'basket' , $n -> id}}" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
+                                <a href="{{route('productweb' , $n -> id)}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">İncele</a>
                             </div>
                         </div>
                         <div class="pi-text">

@@ -49,8 +49,9 @@
                     </a>
                 </div>
                 <div class="col-xl-6 col-lg-5">
-                    <form class="header-search-form">
-                        <input type="text" placeholder="Site içi arama yap...">
+                    <form class="header-search-form" action="{{route('search')}}" method="post">
+                        {{csrf_field()}}
+                        <input name="search" type="text" placeholder="Site içi arama yap...">
                         <button><i class="flaticon-search"></i></button>
                     </form>
                 </div>
@@ -65,7 +66,7 @@
                         <div class="up-item">
                             <div class="shopping-card">
                                 <i class="flaticon-bag"></i>
-                                <span>0</span>
+{{--                                <span>0</span>--}}
                             </div>
                             <a href="{{route('basket')}}">Sepetin</a>
                         </div>

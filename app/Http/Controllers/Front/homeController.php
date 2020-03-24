@@ -28,7 +28,6 @@ class homeController extends Controller
 
         $new = productCategory::whereBetween('price' , [100, 1000]) -> get();
         View::share('new' , $new);
-
     }
 
     public function index()
@@ -50,50 +49,4 @@ class homeController extends Controller
 
         return view('Front.Home.gentleman');
     }
-    public function basket()
-    {
-        $basket = basketCategory::all();
-        View::share('basket' , $basket);
-        //sorgu yazdırman grek ilişkiden fiyata gidip TL kısmından öneki yeri alman gerek.
-        //tl kısmını integer ile değiş tl yi viewa sabitle gerekli validationları yaz. migrate et cmsden her yerden değiş
-        //total kısmını yaz döngünün içini kullan
-        // ajax ile güncelleme yap veri silme
-        // küyeler için veri tabanı oluştur ve view oluştur
-        return view('Front.Home.basket');
-    }
-    public function pay()
-    {
-        return view('Front.Home.pay');
-    }
-    public function contact()
-    {
-        return view('Front.Home.contact');
-    }
-    public function login()
-    {
-        return view('Front.Home.login');
-    }
-    public function register()
-    {
-        return view('Front.Home.register');
-    }
-    public function product($id)
-    {
-        $product = productCategory::findOrFail($id);
-        View::share('product', $product);
-
-        return view('Front.Home.product');
-    }
-    public function add_basket(Request $request)
-    {
-        $basket = new basketCategory();
-        $basket -> fill($request -> all());
-
-        $basket -> save();
-
-        return Response::json([
-            'message' => 'ok'
-        ]);
-    }
-
 }

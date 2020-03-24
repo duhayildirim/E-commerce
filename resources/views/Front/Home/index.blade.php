@@ -92,7 +92,6 @@
                     <div class="pi-pic" " >
                         <img src="{{ \Illuminate\Support\Facades\Storage::url($n -> img_url) }}" style="width: 100%; height: 400px" alt="">
                         <div class="pi-links">
-                            <a href="{{'basket'}}" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
                             <a href="{{route('productweb' , $n -> id)}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">İncele</a>
                         </div>
                     </div>
@@ -113,7 +112,7 @@
     <section class="product-filter-section">
         <div class="container">
             <div class="section-title">
-                <h2>İndirimdekiler</h2>
+                <h2>Trendler</h2>
             </div>
             <ul class="product-filter-menu" align="center">
                 <li><a>Pantolon</a></li>
@@ -132,7 +131,6 @@
                         <div class="pi-pic">
                             <img  src="{{\Illuminate\Support\Facades\Storage::url($s -> img_url)}}" style="width: 100%; height: 400px" alt="">
                             <div class="pi-links">
-                                <a href="{{route('basket' , $s -> id)}}" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
                                 <a href="{{route('productweb' , $s -> id)}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">İncele</a>
                             </div>
                         </div>

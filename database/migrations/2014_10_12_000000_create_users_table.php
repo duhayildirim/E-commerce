@@ -22,6 +22,9 @@ class CreateUsersTable extends Migration
             $table->boolean('admin');
             $table->rememberToken();
             $table->timestamps();
+            //$table->string('aktivation' , 10)->nullable();
+            //$table->string('role')->default('admin');
+            //$table->softDeletes();
         });
     }
 

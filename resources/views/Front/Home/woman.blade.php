@@ -48,7 +48,7 @@
                                     <div class="tag-sale">Yeni</div>
                                     <img src="{{\Illuminate\Support\Facades\Storage::url($new -> img_url)}}" alt="">
                                     <div class="pi-links">
-                                        <a href="{{route('basket')}}" class="add-card"><i class="flaticon-bag"></i><span>SEPETE EKLE</span></a>
+                                        <a href="{{route('productweb' , $new -> id)}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">İncele</a>
                                     </div>
                                 </div>
                                 <div class="pi-text">
